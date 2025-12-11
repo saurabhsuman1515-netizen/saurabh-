@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Profile Cards</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+    }
+
+    .wrapper {
+      padding: 40px 60px;
+      border: 2px solid #000;
+      background: #4784a0;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+    }
+    .card {
+      width: 220px;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px 20px 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(176, 16, 16, 0.1);
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #05c71f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090909;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .name {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .course,
+    .roll,
+    .year {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .year {
+      margin-top: 4px;
+    }
+
+    @media (max-width: 800px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="avatar">SK</div>
+        <div class="name">SHIVAM KUMAR</div>
+        <div class="course">B.Tech - CSE</div>
+        <div class="roll">Roll No: 2025B01011349</div>
+        <div class="year">1st Year</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="avatar">SS</div>
+        <div class="name">SAURABH SUMAN</div>
+        <div class="course">B.Tech - CSE</div>
+        <div class="roll">Roll No: 2025B01011367</div>
+        <div class="year">1st Year</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="avatar">VM</div>
+        <div class="name">VEDANT MISHRA
+        </div>
+        <div class="course">B.Tech - CSE</div>
+        <div class="roll">Roll No: 2025B012367</div>
+        <div class="year">1st Year</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
