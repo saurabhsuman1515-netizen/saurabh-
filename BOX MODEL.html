@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Box Model Visualization</title>
+  <style>
+    :root{
+      --content-color:#0fb6b0;   /* teal */
+      --padding-color:#ffd54f;   /* yellow */
+      --border-color:#1e88e5;    /* blue */
+      --margin-color:#ff8a00;    /* orange */
+
+      --content-w: 600px;
+      --content-h: 360px;
+      --padding:   90px;
+      --border:    60px;
+      --margin:    96px;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#f6f7fb;
+      color:#222;
+      display:flex;
+      min-height:100vh;
+      align-items:center;
+      justify-content:center;
+      margin:0;
+      padding:40px;
+    }
+
+    .stack{
+      display:inline-block;
+      position:relative;
+      /* margin layer is visualized by the outer container background + padding */
+      background: var(--margin-color);
+      padding: var(--margin);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+    .stack::before{
+      content:"Margin";
+      position:absolute;
+      top:10px; left:12px;
+      font-weight:600;
+      color:#eeedec;
+      opacity:.9;
+    }
+
+    /* "Border" layer as a wrapper with background color and inner padding equal to border width */
+    .border-box{
+      background: var(--border-color);
+      padding: var(--border);
+      border-radius: 6px;
+      position:relative;
+    }
+    .border-box::before{
+      content:"Border";
+      position:absolute;
+      top:8px; left:10px;
+      font-weight:600;
+      color:#fff;
+      opacity:.95;
+    }
+
+    /* "Padding" layer with actual padding space and a label */
+    .padding-box{
+      background: var(--padding-color);
+      padding: var(--padding);
+      border-radius: 4px;
+      position:relative;
+    }
+    .padding-box::before{
+      content:"Padding";
+      position:absolute;
+      top:8px; left:10px;
+      font-weight:600;
+      color:#e7e5e1;
+      opacity:.95;
+    }
+
+    /* Content area */
+    .content-box{
+      background: var(--content-color);
+      width: var(--content-w);
+      height: var(--content-h);
+      border-radius: 4px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#063d3b;
+      font-weight:600;
+      position:relative;
+    }
+    .content-box::before{
+      content:"Content";
+      position:absolute;
+      top:8px; left:10px;
+      font-weight:600;
+      color:#e7efec;
+      opacity:.95;
+    }
+
+    /* Optional helper grid backdrop */
+    .checker{
+      position:absolute;
+      inset:-28px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px) 0 0/20px 20px,
+        linear-gradient(0deg,  rgba(0,0,0,.06) 1px, transparent 1px) 0 0/20px 20px;
+      border-radius:10px;
+      pointer-events:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="stack">
+    <span class="checker" aria-hidden="true"></span>
+    <div class="border-box">
+      <div class="padding-box">
+        <div class="content-box">
+          <!-- Center label already added via ::before -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
